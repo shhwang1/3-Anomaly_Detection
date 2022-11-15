@@ -4,4 +4,4 @@
 
 ### Density-based Anomaly Detection
 
-### Local Outlier Factor (LOF) 
+#### 1. Local Outlier Factor (LOF) 
