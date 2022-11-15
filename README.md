@@ -65,3 +65,71 @@ ___
 ## Density-based Anomaly Detection
 
 ### 1. Local Outlier Factor (LOF)
+
+<p align="center"><img src="https://user-images.githubusercontent.com/115224653/201899094-fd568fa0-1f49-44b0-b249-d4597427620f.png" width="600" height="300"></p> 
+
+Local Outlier Factor is an Anomaly Detection method that considers the relative density of data around an instance. There are two key elements of LOF, 1. k-distance and 2. reachability distance.
+
+![image](https://user-images.githubusercontent.com/115224653/201900052-296dbd21-1c64-4044-b44f-3e8abd597ae2.png)
+
+#### 1. K-distance
+The K-distance has the largest distance value among the distances from the K instances arbitrarily determined around the corresponding instance. $N_k(p)$ means a set of all instances that are closer than k-distance from a particular instance.
+
+#### 2. Reachability distance
+Reachability distance has a larger value between the distance from a particular instance to the distance of another instance and the k-distance value.
+
+The formula for calculating the LOF score using k-distance and reachability distance is as follows. The outlier is judged based on the score.
+<p align="center"><img src="https://user-images.githubusercontent.com/115224653/201903345-a26f7109-b90b-4915-afc6-a488d8ce1304.png" width="750" height="300"></p> 
+
+#### Python Code
+``` py
+import numpy as np
+import pandas as pd
+import random
+import matplotlib.pyplot as plt
+
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.neighbors import LocalOutlierFactor
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+
+def LocalOutlierFactorAD(args):
+    data = pd.read_csv(args.data_path + args.data_type)
+    data = data.sort_values(by=['y'])
+    data.reset_index(inplace=True)
+    data.drop(['index'], axis=1, inplace=True)
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 1:
+            data.iloc[:, -1][i] = -1
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 0:
+            data.iloc[:, -1][i] = 1
+```
+In all four data sets used, normal label is set to 0 and abnormal label is set to 1. Subsequently, for compatibility with the package used as an evaluation index, it went through the process of changing the normal to label '1' and the abnormal to label '-1'.
+
+```py
+    n_outliers = len(data[data.iloc[:, -1]==-1])
+    ground_truth = np.ones(len(X_data), dtype=int)
+    ground_truth[-n_outliers:] = -1
+
+    scaler = MinMaxScaler()
+    X_scaled = scaler.fit_transform(X_data)
+
+    lof = LocalOutlierFactor(n_neighbors = args.neighbors, contamination=.03)
+    y_pred = lof.fit_predict(X_scaled)
+    n_errors = (y_pred != ground_truth).sum()
+    accuracy = accuracy_score(y_pred, y_data)
+    precision = precision_score(y_pred, y_data)
+    recall = recall_score(y_pred, y_data)
+    f1score = f1_score(y_pred, y_data)
+    
+    print('LOF neighbors =', args.neighbors)
+    print('Accuracy :', accuracy, " Precision :", precision)
+    print('Recall :', recall, 'F1-Score :', f1score)
+```
+In Local Outlier Factor algorithm, there's one hyperparameter, 'n_neighbors'. This represents the value of k for obtaining k-distance in the above description. The experimental results according to the change in the neighbors value will be examined in the analysis chapter later.
+___
+## Density-based Anomaly Detection
+
+### 2. K-Neareast Neighbor Anomaly Detection
