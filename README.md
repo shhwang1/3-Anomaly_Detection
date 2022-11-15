@@ -1,4 +1,5 @@
 # 3-Anomaly_Detection Tutorial
+![image](https://user-images.githubusercontent.com/115224653/201886259-e8dafab7-55fe-480a-8428-e131f93ee1cc.png)
 
 ## Table of Contents
 
