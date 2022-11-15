@@ -48,13 +48,12 @@ In all methods, data is used in the following form.
 import argparse
 
 def Parser1():
-    parser = argparse.ArgumentParser(description='1_Dimensionality Reduction')
+    parser = argparse.ArgumentParser(description='3_Anomaly Detection')
 
     # data type
     parser.add_argument('--data-path', type=str, default='./data/')
-    parser.add_argument('--data-type', type=str, default='abalone.csv',
-                        choices = ['abalone.csv', 'BankNote.csv', 'PersonalLoan.csv', 'WineQuality.csv', 'Diabetes.csv', 'Concrete.csv', 
-                                    'Estate.csv', 'ToyotaCorolla.csv'])
+    parser.add_argument('--data-type', type=str, default='Cardiotocogrpahy.csv',
+                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv'])
                         
 data = pd.read_csv(args.data_path + args.data_type)
 
