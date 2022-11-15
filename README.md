@@ -1,4 +1,5 @@
 # 3-Anomaly_Detection
+![image](https://user-images.githubusercontent.com/115224653/201884901-1ebfc84a-9541-4001-8e61-799065b0adab.png)
 
 ## 목차
 
