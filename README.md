@@ -1,6 +1,6 @@
 # 3-Anomaly_Detection
 
-## 목차
+## Table of Contents
 
 ### Density-based Anomaly Detection
 #### 1. Local Outlier Factor (LOF) 
