@@ -36,6 +36,31 @@ Next, the methodology of 1) densitiy-based anomaly detection, 2) distance-based 
 
 ## Dataset
 
+We use 4 unbalanced datasets for Anomaly Detection (Cardiotocogrpahy, Glass, Lympho, Seismic)   
+
+Cardiotocogrpahy dataset : <https://archive.ics.uci.edu/ml/datasets/cardiotocography>     
+Glass dataset : <http://odds.cs.stonybrook.edu/glass-data/>   
+Lympho dataset : <https://archive.ics.uci.edu/ml/datasets/Lymphography>   
+Seismic datset : <http://odds.cs.stonybrook.edu/seismic-dataset/>    
+
+In all methods, data is used in the following form.
+``` C
+import argparse
+
+def Parser1():
+    parser = argparse.ArgumentParser(description='1_Dimensionality Reduction')
+
+    # data type
+    parser.add_argument('--data-path', type=str, default='./data/')
+    parser.add_argument('--data-type', type=str, default='abalone.csv',
+                        choices = ['abalone.csv', 'BankNote.csv', 'PersonalLoan.csv', 'WineQuality.csv', 'Diabetes.csv', 'Concrete.csv', 
+                                    'Estate.csv', 'ToyotaCorolla.csv'])
+                        
+data = pd.read_csv(args.data_path + args.data_type)
+
+X_data = data.iloc[:, :-1]
+y_data = data.iloc[:, -1]
+```
 ___
 
 ## Density-based Anomaly Detection
