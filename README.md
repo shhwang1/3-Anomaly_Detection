@@ -31,3 +31,13 @@ The classification problem aims to literally classify data with an appropriate n
 
 ### 2. Anomaly Detection trains the model only with normal data.
 The classification problem uses both normal and abnormal data for training. However, Anomaly Detection trains the model only with normal data, and designs to discover anomaly data for datasets containing abnormal data in the test phase. After the model learns the feature of normal data well, then when abnormal data that has not been learned enters as input, it is judged as anomaly data.
+
+Next, the methodology of 1) densitiy-based anomaly detection, 2) distance-based anomaly detection, 3) model-based anomaly detection will be described.
+
+## Dataset
+
+___
+
+## Density-based Anomaly Detection
+
+### 1. Local Outlier Factor (LOF)
