@@ -28,3 +28,5 @@ If so, you may be curious about the difference between Classification and Anomal
 
 ### 1. Anomaly Detection utilizes very unbalanced data.
 In explaining the definition of Anomaly, he mentioned the purpose of Anomaly Detection. Anomaly Detection aims to detect a small number of anomaly data embedded between the majority of data that are even. Therefore, we also use dataset consisting of very few ano data and most normal data.
+
+### 2. Anomaly Detection trains the model only with normal data.
