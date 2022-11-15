@@ -1,4 +1,4 @@
-# 3-Anomaly_Detection
+# 3-Anomaly_Detection Tutorial
 
 ## Table of Contents
 
