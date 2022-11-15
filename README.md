@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-### 0. Overview of Anomaly Detection
+#### 0. Overview of Anomaly Detection
 ___
 ### Density-based Anomaly Detection
 #### 1. Local Outlier Factor (LOF) 
