@@ -549,7 +549,7 @@ ___
 
 ### Reference
 
-- Business Analytics, Korea university (IME-654)
+- Business Analytics, Korea university (IME-654) https://www.youtube.com/watch?v=ODNAyt1h6Eg
 - https://towardsdatascience.com/anomaly-detection-in-time-series-sensor-data-86fd52e62538
 - https://www.researchgate.net/figure/The-anomaly-detection-and-the-classification-learning-schemas_fig1_282309055
 - https://yjjo.tistory.com/45
