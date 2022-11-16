@@ -554,3 +554,4 @@ ___
 - https://www.researchgate.net/figure/The-anomaly-detection-and-the-classification-learning-schemas_fig1_282309055
 - https://yjjo.tistory.com/45
 - https://medium.com/dataman-in-ai/anomaly-detection-with-pyod-b523fc47db9
+- https://www.assemblyai.com/blog/introduction-to-variational-autoencoders-using-keras/
