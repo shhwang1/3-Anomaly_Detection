@@ -221,3 +221,5 @@ def mad_score(points):
 
     return 0.6745 * ad / mad
 ```
+'mad score' is used as a threshold for the anonymous detection problem using Auto-encoder. The reason why I use mad score is because the mean and standard deviation are themselves susceptible to the presence of anomalies. A brief formula for mad score is as follows.
+<p align="center"><img src="https://user-images.githubusercontent.com/115224653/202091036-5a3155bc-8c45-4ab5-976c-6f56703983ab.png" width="600" height="150"></p>
