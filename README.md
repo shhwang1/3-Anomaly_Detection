@@ -395,3 +395,17 @@ Since the outlier threshold determined according to the methodology to be tested
 ### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
 
 In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is very important because it directly affects the calculation of k-distance and reachability, which are important elements of the methodology. In the existing code, the default value of k is 20. We compared the performance for a total of six cases: 5, 10, 15, 20, 30, 50. The evaluation metrics were set to accuracy and F1 score.
+
+|  Accuracy  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.9001 |        **0.9022** |         0.8990|        0.8990 |        0.9000|        0.9001|
+|          2 | Glass                 |    0.9439 |        0.9439|        **0.9533** |        0.9439 |        0.9420|        0.9439 |
+|          3 | Lympho                 |    0.9595 |        0.9595 |        **0.9730** |        0.9730 |        0.9730 |        0.9730 |
+|          4 | Seismic                 |    0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9241 |
+
+|  F1-Score  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.9484 |        **0.9484** |         0.9466|        0.9466 |        0.9472|        0.9472|
+|          2 | Glass                 |    0.9712 |        0.9712|        **0.9760** |        0.9712 |        0.9712|        0.9712 |
+|          3 | Lympho                 |    0.9792 |        0.9792 |        **0.9861** |        0.9861 |        0.9861 |        0.9861 |
+|          4 | Seismic                 |    0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9606 |
