@@ -196,7 +196,7 @@ ___
 
 ### 3. Auto-encoder
 <p align="center"><img src="https://user-images.githubusercontent.com/115224653/202088547-79e0ba8f-9cc7-41ca-b632-0eeeb106fc1e.png" width="600" height="300"></p>
-Auto-encoder refers to a model that compresses input data into a late vector through an encoder and then restores it to the same shape as input data through a decoder. One might wonder how this model, which simply compresses and reconstructs input data, can be used for the anomaly detection problem. The important part is the second content mentioned earlier that anomaly detection is different from the classification problem. Since the model is trained to reconstruct input data using only normal data in the train phase, it is impossible to properly reconstruct outlier data when it enters input data in test phase, and the data is judged as outlier data.
+Auto-encoder refers to a model that compresses input data into a late vector through an encoder and then restores it to the same shape as input data through a decoder. One might wonder how this model, which simply compresses and reconstructs input data, can be used for the anomaly detection problem. The important part is the second content mentioned earlier that anomaly detection is different from the classification problem. Since the model is trained to reconstruct input data using only normal data in the train phase, it is impossible to properly reconstruct outlier data when it enters input data in test phase, and the data is judged as outlier data. As a criterion for determining an outlier, MSE value between the reconstructed data and the existing data is obtained and converted into MAD_Score, and if it is higher than the threshold value, it is determined as an outlier.
 
 #### Python Code
 ``` py
