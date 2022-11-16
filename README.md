@@ -545,3 +545,8 @@ ___
 #### 2) In the case of Isolation Forest, the percentage of the outlier is received as an argument and the threshold is determined by itself. 
 #### 3) However, in some cases, the Auto-encoder, which arbitrarily set the threshold value, showed better performance than Isolation Forest.
 #### 4) I think that research on thresholds suitable for datasets and methodologies used is an essential field.
+___
+
+### Reference
+
+https://towardsdatascience.com/anomaly-detection-in-time-series-sensor-data-86fd52e62538
