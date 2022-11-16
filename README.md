@@ -321,7 +321,17 @@ if args.masking:
     print('Accuracy :', accuracy, " Precision :", precision)
     print('Recall :', recall, 'F1-Score :', f1score)
 ```
-We used tensorflow to build a deep learning model. The model structure is very simple. The existing feature is compressed into 16-dim -> 8-dim -> 4dim -> 2dim and reconstructed with the existing shape. We conducted an additional experiment applying masking, which replaces random information among input data with a value of 0. The following is a architecture of the model structure, and a comparative experiment according to masking will be confirmed later in analysis.
+We used tensorflow to build a deep learning model. The model structure is very simple. The existing feature is compressed into 16-dim -> 8-dim -> 4dim -> 2dim and reconstructed with the existing shape. We conducted an additional experiment applying masking, which replaces random information among input data with a value of 0. The following is a architecture of the model structure, and a comparative experiment according to masking will be confirmed later in analysis. 
+
+### Masking
+
+<p align="center"><img src="https://user-images.githubusercontent.com/115224653/202111809-441be92d-89b2-491c-b744-29887a9758c0.png" width="600" height="300"></p>
+
+Masking is one of the data augmentation techniques and it is usually used a lot when dealing with image data.. It can be thought that distorting the data value can rather interfere with training. However, it has been experimentally demonstrated that by omitting some values, the encoder that compresses the data and the decoder that reconstruct it can better understand the features of the data. In the experiment, how much of the data to mask will be set as a hyperparameter and the experimental performance will be compared. 
+
 ![image](https://user-images.githubusercontent.com/115224653/202095568-700242b1-22da-4f5b-bfd0-6dab955953f1.png)
+
 ___
 ### 4. Isolation Forest
+![image](https://user-images.githubusercontent.com/115224653/202096384-0b20d985-336b-4b3a-8da9-59eda25b3f41.png)
+Isolation Forest is a model that literally uses straight lines to separate data, determining whether it is outlier data based on the number of straight lines required to isolate. The picture above shows that the anomaly data needs a small number of straight lines to isolate, and the normal data needs a large number of straight lines to isolate. It is a model that determines whether the data is abnormal based on the number of straight lines required to isolate the data.
