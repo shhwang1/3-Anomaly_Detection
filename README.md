@@ -335,3 +335,54 @@ ___
 ### 4. Isolation Forest
 ![image](https://user-images.githubusercontent.com/115224653/202096384-0b20d985-336b-4b3a-8da9-59eda25b3f41.png)
 Isolation Forest is a model that literally uses straight lines to separate data, determining whether it is outlier data based on the number of straight lines required to isolate. The picture above shows that the anomaly data needs a small number of straight lines to isolate, and the normal data needs a large number of straight lines to isolate. It is a model that determines whether the data is abnormal based on the number of straight lines required to isolate the data.
+
+#### Python Code
+``` py
+import random
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import random
+
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.ensemble import IsolationForest
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+
+def IsolationForestAD(args):
+    data = pd.read_csv(args.data_path + args.data_type)
+    data = data.sort_values(by=['y'])
+    data.reset_index(inplace=True)
+    data.drop(['index'], axis=1, inplace=True)
+
+    scaler = MinMaxScaler()
+    data.iloc[:, :-1] = scaler.fit_transform(data.iloc[:, :-1])
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 1:
+            data.iloc[:, -1][i] = -1
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 0:
+            data.iloc[:, -1][i] = 1
+
+    X = data.iloc[:, :-1]
+    y = data.iloc[:, -1]
+```
+``` py
+    if_model = IsolationForest(n_estimators = args.n_estimators,
+                                max_samples = args.max_samples,
+                                contamination = args.anomaly_ratio,
+                                random_state = args.seed)
+
+    if_model.fit(X)
+    y_pred = if_model.predict(X)
+
+    accuracy = accuracy_score(y_pred, y)
+    precision = precision_score(y_pred, y)
+    recall = recall_score(y_pred, y)
+    f1score = f1_score(y_pred, y)
+    
+    print('Isolation Forest Performance')
+    print('Accuracy :', accuracy, " Precision :", precision)
+    print('Recall :', recall, 'F1-Score :', f1score)
+```
