@@ -36,13 +36,12 @@ Next, the methodology of 1) densitiy-based anomaly detection, 2) distance-based 
 
 ## Dataset
 
-We use 8 unbalanced datasets for Anomaly Detection (Cardiotocogrpahy, Glass, Lympho, Seismic, ForestCover, Shuttle, Annthyroid, Mammography)   
+We use 7 unbalanced datasets for Anomaly Detection (Cardiotocogrpahy, Glass, Lympho, Seismic, Shuttle, Annthyroid, Mammography)   
 
 Cardiotocogrpahy dataset : <https://archive.ics.uci.edu/ml/datasets/cardiotocography>     
 Glass dataset : <http://odds.cs.stonybrook.edu/glass-data/>   
 Lympho dataset : <https://archive.ics.uci.edu/ml/datasets/Lymphography>   
-Seismic datset : <http://odds.cs.stonybrook.edu/seismic-dataset/>    
-ForestCover dataset : <http://odds.cs.stonybrook.edu/forestcovercovertype-dataset/>   
+Seismic datset : <http://odds.cs.stonybrook.edu/seismic-dataset/>      
 Shuttle dataset : <http://odds.cs.stonybrook.edu/shuttle-dataset/>   
 Annthyroid dataset : <http://odds.cs.stonybrook.edu/annthyroid-dataset/>   
 Mammography dataset : <http://odds.cs.stonybrook.edu/mammography-dataset/>   
@@ -57,7 +56,7 @@ def Parser1():
     # data type
     parser.add_argument('--data-path', type=str, default='./data/')
     parser.add_argument('--data-type', type=str, default='Cardiotocogrpahy.csv',
-                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv', 'ForestCover.csv', 'Shuttle.csv', 'Annthyroid.csv', 'Mammography.csv'])            
+                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv', 'Shuttle.csv', 'Annthyroid.csv', 'Mammography.csv'])            
                         
 data = pd.read_csv(args.data_path + args.data_type)
 
@@ -394,7 +393,7 @@ In 'IsolationForest' model, we used four arguments, 'n_estimators', 'max_samples
 ___
 
 ## Analysis
-Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. And at the end of the analysis chapter, we will compare the methodology based on the best performance after hyperparameter tuning.
+Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. The threshold is a point value corresponding to 95% of the outer score, and has a different value for each dataset. Therefore, since the outer score calculated by the model is different, the comparison by model is meaningless. Therefore, the main content is not comparison by model, but performance comparison through hyperparameter tuning for one model.
 
 ### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
 
@@ -406,10 +405,9 @@ In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is
 |          2 | Glass                 |    0.9439 |        0.9439|        **0.9533** |        0.9439 |        0.9420|        0.9439 |
 |          3 | Lympho                 |    0.9595 |        0.9595 |        **0.9730** |        0.9730 |        0.9730 |        0.9730 |
 |          4 | Seismic                 |    0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9241 |
-|          5 | ForestCover                 |    0.9806 |        0.9807 |        0.9808 |        0.9808 |        0.9809 |        **0.9811** |
-|          6 | Shuttle                 |    0.9220 |        0.9226 |        **0.9233** |        0.9231 |        0.9230 |        0.9221 |
-|          7 | Annthyroid                 |    0.9167 |        0.9214 |        0.9202 |        0.9208 |        0.9219 |        **0.9228** |
-|          8 | Mammography                 |    0.9700 |        0.9691 |        0.9701 |        0.9705 |        0.9708 |        **0.9717** |
+|          5 | Shuttle                 |    0.9220 |        0.9226 |        **0.9233** |        0.9231 |        0.9230 |        0.9221 |
+|          6 | Annthyroid                 |    0.9167 |        0.9214 |        0.9202 |        0.9208 |        0.9219 |        **0.9228** |
+|          7 | Mammography                 |    0.9700 |        0.9691 |        0.9701 |        0.9705 |        0.9708 |        **0.9717** |
 
 |  F1-Score  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
 |:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
@@ -417,15 +415,14 @@ In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is
 |          2 | Glass                 |    0.9712 |        0.9712|        **0.9760** |        0.9712 |        0.9712|        0.9712 |
 |          3 | Lympho                 |    0.9792 |        0.9792 |        **0.9861** |        0.9861 |        0.9861 |        0.9861 |
 |          4 | Seismic                 |    0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9606 |
-|          5 | ForestCover                 |    0.9902 |        0.9902 |        0.9903 |        0.9903 |        0.9904 |       **0.9905** |
-|          6 | Shuttle                 |    0.9593 |        0.9597 |        **0.9600** |        0.9599 |        0.9599 |        0.9594 |
-|          7 | Annthyroid                 |    0.9565 |        0.9590 |        0.9584 |        0.9587 |        0.9593 |        **0.9597** |
-|          8 | Mammography                 |    0.9847 |        0.9843 |        0.9848 |        0.9850 |        0.9852 |       **0.9856** |
+|          5 | Shuttle                 |    0.9593 |        0.9597 |        **0.9600** |        0.9599 |        0.9599 |        0.9594 |
+|          6 | Annthyroid                 |    0.9565 |        0.9590 |        0.9584 |        0.9587 |        0.9593 |        **0.9597** |
+|          7 | Mammography                 |    0.9847 |        0.9843 |        0.9848 |        0.9850 |        0.9852 |       **0.9856** |
 
 Analyzing the experimental results can be summarized as follows.
 
 #### 1. Datasets (Lympho, Seismic) with a small number of samples are insensitive to performance changes despite changes in K values.
-#### 2. As the K value increases, the performance of datasets with a large number of samples (Anthyroid, Mammography, and ForestCover) increases slightly.
+#### 2. As the K value increases, the performance of datasets with a large number of samples (Anthyroid, Mammography) increases slightly.
 #### 3. The high value of K did not necessarily mean that the performance was good.
 #### 4. It did not seem to be significantly affected by the change in the K value.
 ___
@@ -439,10 +436,9 @@ Like the Local Outlier Factor, the role of k-NN anonymous detection is also impo
 |          2 | Glass                 |    **0.9533** |        0.9439|       0.9393 |        0.9392 |        0.9392|        0.9252|
 |          3 | Lympho                 |    0.9594 |        0.9594 |        0.9662 |        0.9662 |        0.9797 |        **0.9865** |
 |          4 | Seismic                 |    0.9342 |        0.9342 |       **0.9342** |        0.9299 |        0.9276 |        0.9249 |
-|          5 | ForestCover                 |    0.9896 |        0.9897 |        0.9899 |        0.9901 |        0.9902 |        **0.9904** |
-|          6 | Shuttle                 |    0.9284 |        0.9284 |        0.9284 |        0.9285 |        0.9285 |        0.9285 |
-|          7 | Annthyroid                 |    0.9258 |        0.9257 |        0.9256 |        0.9257 |        0.9254 |        **0.9259** |
-|          8 | Mammography                 |    0.9767 |        0.9767 |        0.9767 |        **0.9768** |        0.9766 |        0.9767 |
+|          5 | Shuttle                 |    0.9284 |        0.9284 |        0.9284 |        0.9285 |        0.9285 |        0.9285 |
+|          6 | Annthyroid                 |    0.9258 |        0.9257 |        0.9256 |        0.9257 |        0.9254 |        **0.9259** |
+|          7 | Mammography                 |    0.9767 |        0.9767 |        0.9767 |        **0.9768** |        0.9766 |        0.9767 |
 
 |  F1-Score  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
 |:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
@@ -450,10 +446,9 @@ Like the Local Outlier Factor, the role of k-NN anonymous detection is also impo
 |          2 | Glass                 |    **0.9761** |        0.9712|        0.9687 |        0.9685 |        0.9685|        0.9610 |
 |          3 | Lympho                 |    0.9793 |        0.9793 |        0.9827 |        0.9827 |        0.9895 |        **0.9930** |
 |          4 | Seismic                 |    0.9659 |        0.9659 |        **0.9660** |        0.9637 |        0.9624 |        0.9609 |
-|          5 | ForestCover                 |    0.9943 |        0.9944 |        0.9947 |        0.9948 |        0.9951 |       **0.9952** |
-|          6 | Shuttle                 |    0.9629 |        0.9629 |        0.9629 |        0.9629 |        0.9629 |        0.9629 |
-|          7 | Annthyroid                 |    0.9614 |        0.9614 |        0.9614 |        0.9614 |        0.9612 |        **0.9615** |
-|          8 | Mammography                 |    0.9882 |        0.9882 |        0.9882 |        0.9882 |        0.9881 |       **0.9882** |
+|          5 | Shuttle                 |    0.9629 |        0.9629 |        0.9629 |        0.9629 |        0.9629 |        0.9629 |
+|          6 | Annthyroid                 |    0.9614 |        0.9614 |        0.9614 |        0.9614 |        0.9612 |        **0.9615** |
+|          7 | Mammography                 |    0.9882 |        0.9882 |        0.9882 |        0.9882 |        0.9881 |       **0.9882** |
 
 Analyzing the experimental results can be summarized as follows.
 
@@ -466,3 +461,22 @@ ___
 In Auto-encoder, the MAD_Score described above is set to threshold. In this experiment, the performance when masking is applied and when not applied is compared. If masking is applied, the ratio of masking, args.Compare the masking_ratio in 0.1, 0.2, 0.3, and 0.4 cases. Epoch is 300, batch size is 32.
 
 #### 1) No Masking Case
+|  Accuracy  | Dataset              |  K = 5 |
+|:----------:|:--------------------:|:------:|
+|          1 | Cardiotocogrpahy            |    0.7554 |
+|          2 | Glass                 |    0.7600 |
+|          3 | Lympho                 |    0.9429 |
+|          4 | Seismic                 |    0.7320 |
+|          5 | Shuttle                 |    0.9284 |
+|          6 | Annthyroid                 |    0.9258 |
+|          7 | Mammography                 |    0.9767 |
+
+|  F1-Score  | Dataset              |  K = 5 |
+|:----------:|:--------------------:|:------:|
+|          1 | Cardiotocogrpahy            |    0.7554 |
+|          2 | Glass                 |    0.8500 |
+|          3 | Lympho                 |    0.9666 |
+|          4 | Seismic                 |    0.8262 |
+|          5 | Shuttle                 |    0.9284 |
+|          6 | Annthyroid                 |    0.9258 |
+|          7 | Mammography                 |    0.9767 |
