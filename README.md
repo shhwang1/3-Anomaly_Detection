@@ -36,12 +36,13 @@ Next, the methodology of 1) densitiy-based anomaly detection, 2) distance-based 
 
 ## Dataset
 
-We use 4 unbalanced datasets for Anomaly Detection (Cardiotocogrpahy, Glass, Lympho, Seismic)   
+We use 5 unbalanced datasets for Anomaly Detection (Cardiotocogrpahy, Glass, Lympho, Seismic, ForestCover)   
 
 Cardiotocogrpahy dataset : <https://archive.ics.uci.edu/ml/datasets/cardiotocography>     
 Glass dataset : <http://odds.cs.stonybrook.edu/glass-data/>   
 Lympho dataset : <https://archive.ics.uci.edu/ml/datasets/Lymphography>   
 Seismic datset : <http://odds.cs.stonybrook.edu/seismic-dataset/>    
+ForestCover dataset : <http://odds.cs.stonybrook.edu/forestcovercovertype-dataset/>
 
 In all methods, data is used in the following form.
 ``` C
@@ -53,7 +54,7 @@ def Parser1():
     # data type
     parser.add_argument('--data-path', type=str, default='./data/')
     parser.add_argument('--data-type', type=str, default='Cardiotocogrpahy.csv',
-                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv'])
+                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv', 'ForestCover.csv'])
                         
 data = pd.read_csv(args.data_path + args.data_type)
 
