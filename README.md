@@ -431,3 +431,26 @@ Analyzing the experimental results can be summarized as follows.
 ___
 
 ### [Experiment 2.] Comparison of k-NN anomaly detection performance by neighbors hyperparameter changes
+Like the Local Outlier Factor, the role of k-NN anonymous detection is also important for hyperparameter K. Experimentally check whether the role of K, which was insignificant in the Local Outlier Factor, is different in k-NN anonymous detection. The change pattern of K was configured in the same way as the Local Outlier Factor.
+
+|  Accuracy  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.9001 |        **0.9022** |         0.8990|        0.8990 |        0.9000|        0.9001|
+|          2 | Glass                 |    0.9439 |        0.9439|        **0.9533** |        0.9439 |        0.9420|        0.9439 |
+|          3 | Lympho                 |    0.9595 |        0.9595 |        **0.9730** |        0.9730 |        0.9730 |        0.9730 |
+|          4 | Seismic                 |    0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9241 |
+|          5 | ForestCover                 |    0.9806 |        0.9807 |        0.9808 |        0.9808 |        0.9809 |        **0.9811** |
+|          6 | Shuttle                 |    0.9220 |        0.9226 |        **0.9233** |        0.9231 |        0.9230 |        0.9221 |
+|          7 | Annthyroid                 |    0.9167 |        0.9214 |        0.9202 |        0.9208 |        0.9219 |        **0.9228** |
+|          8 | Mammography                 |    0.9700 |        0.9691 |        0.9701 |        0.9705 |        0.9708 |        **0.9717** |
+
+|  F1-Score  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.9484 |        **0.9484** |         0.9466|        0.9466 |        0.9472|        0.9472|
+|          2 | Glass                 |    0.9712 |        0.9712|        **0.9760** |        0.9712 |        0.9712|        0.9712 |
+|          3 | Lympho                 |    0.9792 |        0.9792 |        **0.9861** |        0.9861 |        0.9861 |        0.9861 |
+|          4 | Seismic                 |    0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9606 |
+|          5 | ForestCover                 |    0.9902 |        0.9902 |        0.9903 |        0.9903 |        0.9904 |       **0.9905** |
+|          6 | Shuttle                 |    0.9593 |        0.9597 |        **0.9600** |        0.9599 |        0.9599 |        0.9594 |
+|          7 | Annthyroid                 |    0.9565 |        0.9590 |        0.9584 |        0.9587 |        0.9593 |        **0.9597** |
+|          8 | Mammography                 |    0.9847 |        0.9843 |        0.9848 |        0.9850 |        0.9852 |       **0.9856** |
