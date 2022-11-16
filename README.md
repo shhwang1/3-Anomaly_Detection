@@ -391,3 +391,5 @@ ___
 
 ### Analysis
 Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. And at the end of the analysis chapter, we will compare the methodology based on the best performance after hyperparameter tuning.
+
+#### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
