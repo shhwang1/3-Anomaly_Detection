@@ -27,7 +27,7 @@ Let's look at the beer bottles above. Beer bottles seem to be neatly placed, but
 If so, you may be curious about the difference between Classification and Anomaly Detection. Classification and Anomaly Detection problems differ by the assumptions below.
 
 ### 1. Anomaly Detection utilizes very unbalanced data.
-The classification problem aims to literally classify data with an appropriate number of different classes. However, in explaining the definition of Anomaly, we mentioned the purpose of Anomaly Detection. Anomaly Detection aims to detect a small number of anomaly data embedded between the majority of data that are even. Therefore, we also use dataset consisting of very few ano data and most normal data.
+The classification problem aims to literally classify data with an appropriate number of different classes. However, in explaining the definition of Anomaly, we mentioned the purpose of Anomaly Detection. Anomaly Detection aims to detect a small number of anomaly data embedded between the majority of data that are even. Therefore, we also use dataset consisting of very few anomaly data and most normal data.
 
 ### 2. Anomaly Detection trains the model only with normal data.
 The classification problem uses both normal and abnormal data for training. However, Anomaly Detection trains the model only with normal data, and designs to discover anomaly data for datasets containing abnormal data in the test phase. After the model learns the feature of normal data well, then when abnormal data that has not been learned enters as input, it is judged as anomaly data.
@@ -195,3 +195,5 @@ ___
 ## Model-based Anomaly Detection
 
 ### 3. Auto-encoder
+<p align="center"><img src="https://user-images.githubusercontent.com/115224653/202088547-79e0ba8f-9cc7-41ca-b632-0eeeb106fc1e.png" width="600" height="300"></p>
+Auto-encoder refers to a model that compresses input data into a late vector through an encoder and then restores it to the same shape as input data through a decoder. One might wonder how this model, which simply compresses and reconstructs input data, can be used for the anomaly detection problem. The important part is the second content mentioned earlier that anomaly detection is different from the classification problem. Since the model is trained to reconstruct input data using only normal data in the train phase, it is impossible to properly reconstruct outlier data when it enters input data in test phase, and the data is judged as outlier data.
