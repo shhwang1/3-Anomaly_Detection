@@ -390,3 +390,4 @@ In 'IsolationForest' model, we used four arguments, 'n_estimators', 'max_samples
 ___
 
 ### Analysis
+Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. And at the end of the analysis chapter, we will compare the methodology based on the best performance after hyperparameter tuning.
