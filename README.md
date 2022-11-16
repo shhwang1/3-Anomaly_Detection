@@ -393,7 +393,7 @@ In 'IsolationForest' model, we used four arguments, 'n_estimators', 'max_samples
 ___
 
 ## Analysis
-Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. The threshold is a point value corresponding to 95% of the outer score, and has a different value for each dataset. Therefore, since the outer score calculated by the model is different, the comparison by model is meaningless. Therefore, the main content is not comparison by model, but performance comparison through hyperparameter tuning for one model.
+Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. The threshold is a point value corresponding to 95% of the outer score's max value, and has a different value for each dataset. Therefore, since the outer score calculated by the model is different, the comparison by model is meaningless. Therefore, the main content is not comparison by model, but performance comparison through hyperparameter tuning for one model.
 
 ### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
 
