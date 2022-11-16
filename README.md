@@ -461,22 +461,44 @@ ___
 In Auto-encoder, the MAD_Score described above is set to threshold. In this experiment, the performance when masking is applied and when not applied is compared. If masking is applied, the ratio of masking, args.Compare the masking_ratio in 0.1, 0.2, 0.3, and 0.4 cases. Epoch is 300, batch size is 32.
 
 #### 1) No Masking Case
-|  Accuracy  | Dataset              |  K = 5 |
+|  Accuracy  | Dataset              |  Base |
 |:----------:|:--------------------:|:------:|
 |          1 | Cardiotocogrpahy            |    0.7554 |
 |          2 | Glass                 |    0.7600 |
 |          3 | Lympho                 |    0.9429 |
 |          4 | Seismic                 |    0.7320 |
-|          5 | Shuttle                 |    0.9284 |
-|          6 | Annthyroid                 |    0.9258 |
-|          7 | Mammography                 |    0.9767 |
+|          5 | Shuttle                 |    0.9865 |
+|          6 | Annthyroid                 |    0.7479 |
+|          7 | Mammography                 |    0.9100 |
 
-|  F1-Score  | Dataset              |  K = 5 |
+|  F1-Score  | Dataset              |  Base |
 |:----------:|:--------------------:|:------:|
-|          1 | Cardiotocogrpahy            |    0.7554 |
+|          1 | Cardiotocogrpahy            |    0.8211 |
 |          2 | Glass                 |    0.8500 |
 |          3 | Lympho                 |    0.9666 |
 |          4 | Seismic                 |    0.8262 |
-|          5 | Shuttle                 |    0.9284 |
-|          6 | Annthyroid                 |    0.9258 |
-|          7 | Mammography                 |    0.9767 |
+|          5 | Shuttle                 |    0.9907 |
+|          6 | Annthyroid                 |    0.8448 |
+|          7 | Mammography                 |    0.9519 |
+
+And the following is the result table of applying masking.
+
+|  Accuracy  | Dataset              |  Base |   Masking ratio = 0.1 |   Masking ratio = 0.2 |   Masking ratio = 0.3 |   Masking ratio = 0.4 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.7554 |        0.7377 |         0.8560|        0.9082 |        **0.9131**|        0.9121|
+|          2 | Glass                 |    0.7600 |        0.9439|       0.9393 |        0.9392 |        0.9392|        0.9252|
+|          3 | Lympho                 |    0.9429 |        0.9594 |        0.9662 |        0.9662 |        0.9797 |        **0.9865** |
+|          4 | Seismic                 |    0.7320 |        0.9342 |       **0.9342** |        0.9299 |        0.9276 |        0.9249 |
+|          5 | Shuttle                 |    0.9865 |        0.9284 |        0.9284 |        0.9285 |        0.9285 |        0.9285 |
+|          6 | Annthyroid                 |    0.7479 |        0.9257 |        0.9256 |        0.9257 |        0.9254 |        **0.9259** |
+|          7 | Mammography                 |    0.9100 |        0.9767 |        0.9767 |        **0.9768** |        0.9766 |        0.9767 |
+
+|  F1-Score  | Dataset              |  Base |   Masking ratio = 0.1 |   Masking ratio = 0.2 |   Masking ratio = 0.3 |   Masking ratio = 0.4 |
+|:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|
+|          1 | Cardiotocogrpahy            |    0.8211 |        0.8261 |         0.9004|        0.9082 |        **0.9131**|        0.9121|
+|          2 | Glass                 |    0.8500 |        0.9439|       0.9393 |        0.9392 |        0.9392|        0.9252|
+|          3 | Lympho                 |    0.9666 |        0.9594 |        0.9662 |        0.9662 |        0.9797 |        **0.9865** |
+|          4 | Seismic                 |    0.8262 |        0.9342 |       **0.9342** |        0.9299 |        0.9276 |        0.9249 |
+|          5 | Shuttle                 |    0.9907 |        0.9284 |        0.9284 |        0.9285 |        0.9285 |        0.9285 |
+|          6 | Annthyroid                 |    0.8448 |        0.9257 |        0.9256 |        0.9257 |        0.9254 |        **0.9259** |
+|          7 | Mammography                 |    0.9519 |        0.9767 |        0.9767 |        **0.9768** |        0.9766 |        0.9767 |
