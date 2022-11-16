@@ -57,7 +57,7 @@ def Parser1():
     # data type
     parser.add_argument('--data-path', type=str, default='./data/')
     parser.add_argument('--data-type', type=str, default='Cardiotocogrpahy.csv',
-                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv', 'ForestCover.csv', 'Shuttle.csv', 'Annthyroid.csv',                                                   'Mammography.csv'])
+                        choices = ['Cardiotocogrpahy.csv', 'Glass.csv', 'Lympho.csv', 'Seismic.csv', 'ForestCover.csv', 'Shuttle.csv', 'Annthyroid.csv', 'Mammography.csv'])            
                         
 data = pd.read_csv(args.data_path + args.data_type)
 
