@@ -553,3 +553,4 @@ ___
 - https://towardsdatascience.com/anomaly-detection-in-time-series-sensor-data-86fd52e62538
 - https://www.researchgate.net/figure/The-anomaly-detection-and-the-classification-learning-schemas_fig1_282309055
 - https://yjjo.tistory.com/45
+- https://medium.com/dataman-in-ai/anomaly-detection-with-pyod-b523fc47db9
