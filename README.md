@@ -389,7 +389,7 @@ def IsolationForestAD(args):
 In 'IsolationForest' model, we used four arguments, 'n_estimators', 'max_samples', 'contamination', 'random_state'. 'n_estimators' represent the number of trees and the default value is 100. 'max_samples' represents the number of data sampled for each tree by the specified number of integers. If it is a real number between 0 and 1, the total number of data is multiplied by the real number, and if not specified, the total number of data is used, and the smaller number of 256 is used. "contamination" represents the ratio of outliers in all data, and according to this ratio, the threshold of the score to be determined as outliers is defined. 'random_state' represents the seed value, as you know.
 ___
 
-### Analysis
+## Analysis
 Since the outlier threshold determined according to the methodology to be tested is different, the experiment was first conducted by methodology. And at the end of the analysis chapter, we will compare the methodology based on the best performance after hyperparameter tuning.
 
-#### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
+### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
