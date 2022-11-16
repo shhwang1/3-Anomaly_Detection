@@ -197,3 +197,27 @@ ___
 ### 3. Auto-encoder
 <p align="center"><img src="https://user-images.githubusercontent.com/115224653/202088547-79e0ba8f-9cc7-41ca-b632-0eeeb106fc1e.png" width="600" height="300"></p>
 Auto-encoder refers to a model that compresses input data into a late vector through an encoder and then restores it to the same shape as input data through a decoder. One might wonder how this model, which simply compresses and reconstructs input data, can be used for the anomaly detection problem. The important part is the second content mentioned earlier that anomaly detection is different from the classification problem. Since the model is trained to reconstruct input data using only normal data in the train phase, it is impossible to properly reconstruct outlier data when it enters input data in test phase, and the data is judged as outlier data.
+
+#### Python Code
+``` py
+import random
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import tensorflow as tf
+import random
+
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler, Normalizer
+from sklearn.neighbors import NearestNeighbors
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+
+
+def mad_score(points):
+    m = np.median(points)
+    ad = np.abs(points - m)
+    mad = np.median(ad)
+
+    return 0.6745 * ad / mad
+```
