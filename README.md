@@ -421,3 +421,13 @@ In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is
 |          6 | Shuttle                 |    0.9593 |        0.9597 |        **0.9600** |        0.9599 |        0.9599 |        0.9594 |
 |          7 | Annthyroid                 |    0.9565 |        0.9590 |        0.9584 |        0.9587 |        0.9593 |        **0.9597** |
 |          8 | Mammography                 |    0.9847 |        0.9843 |        0.9848 |        0.9850 |        0.9852 |       **0.9856** |
+
+Analyzing the experimental results can be summarized as follows.
+
+#### 1. Datasets (Lympho, Seismic) with a small number of samples are insensitive to performance changes despite changes in K values.
+#### 2. As the K value increases, the performance of datasets with a large number of samples (Anthyroid, Mammography, and ForestCover) increases slightly.
+#### 3. It did not seem to be significantly affected by the change in the K value.
+
+___
+
+### [Experiment 2.] Comparison of k-NN anomaly detection performance by neighbors hyperparameter changes
