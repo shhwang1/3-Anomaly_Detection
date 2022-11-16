@@ -42,10 +42,10 @@ Cardiotocogrpahy dataset : <https://archive.ics.uci.edu/ml/datasets/cardiotocogr
 Glass dataset : <http://odds.cs.stonybrook.edu/glass-data/>   
 Lympho dataset : <https://archive.ics.uci.edu/ml/datasets/Lymphography>   
 Seismic datset : <http://odds.cs.stonybrook.edu/seismic-dataset/>    
-ForestCover dataset : <http://odds.cs.stonybrook.edu/forestcovercovertype-dataset/>
-Shuttle dataset : <http://odds.cs.stonybrook.edu/shuttle-dataset/>
-Annthyroid dataset : <http://odds.cs.stonybrook.edu/annthyroid-dataset/>
-Mammography dataset : <http://odds.cs.stonybrook.edu/mammography-dataset/>
+ForestCover dataset : <http://odds.cs.stonybrook.edu/forestcovercovertype-dataset/>   
+Shuttle dataset : <http://odds.cs.stonybrook.edu/shuttle-dataset/>   
+Annthyroid dataset : <http://odds.cs.stonybrook.edu/annthyroid-dataset/>   
+Mammography dataset : <http://odds.cs.stonybrook.edu/mammography-dataset/>   
 
 In all methods, data is used in the following form.
 ``` C
@@ -406,7 +406,7 @@ In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is
 |          2 | Glass                 |    0.9439 |        0.9439|        **0.9533** |        0.9439 |        0.9420|        0.9439 |
 |          3 | Lympho                 |    0.9595 |        0.9595 |        **0.9730** |        0.9730 |        0.9730 |        0.9730 |
 |          4 | Seismic                 |    0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9249 |        0.9241 |
-|          5 | ForestCover                 |    0. |        0.9807 |        0. |        0.9808 |        0.9809 |        0.9811 |
+|          5 | ForestCover                 |    0.9806 |        0.9807 |        0.9808 |        0.9808 |        0.9809 |        **0.9811** |
 
 |  F1-Score  | Dataset              |  K = 5 |   K = 10 |   K = 15 |   K = 20 |   K = 30 |   K = 50 |
 |:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|:--------:|
@@ -414,5 +414,5 @@ In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is
 |          2 | Glass                 |    0.9712 |        0.9712|        **0.9760** |        0.9712 |        0.9712|        0.9712 |
 |          3 | Lympho                 |    0.9792 |        0.9792 |        **0.9861** |        0.9861 |        0.9861 |        0.9861 |
 |          4 | Seismic                 |    0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9610 |        0.9606 |
-|          5 | ForestCover                 |    0. |        0.9902 |        0. |        0.9903 |        0.9904 |        0.9905 |
+|          5 | ForestCover                 |    0.9902 |        0.9902 |        0.9903 |        0.9903 |        0.9904 |       ** 0.9905** |
 
