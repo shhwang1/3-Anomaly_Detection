@@ -223,3 +223,101 @@ def mad_score(points):
 ```
 'mad score' is used as a threshold for the anonymous detection problem using Auto-encoder. The reason why I use mad score is because the mean and standard deviation are themselves susceptible to the presence of anomalies. A brief formula for mad score is as follows.
 <p align="center"><img src="https://user-images.githubusercontent.com/115224653/202091036-5a3155bc-8c45-4ab5-976c-6f56703983ab.png" width="600" height="150"></p>
+
+``` py
+def AutoencoderAD(args):
+    data = pd.read_csv(args.data_path + args.data_type)
+    data = data.sort_values(by=['y'])
+    data.reset_index(inplace=True)
+    data.drop(['index'], axis=1, inplace=True)
+
+    scaler = MinMaxScaler()
+    data.iloc[:, :-1] = scaler.fit_transform(data.iloc[:, :-1])
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 1:
+            data.iloc[:, -1][i] = -1
+
+    for i in range(len(data)):
+        if data.iloc[:, -1][i] == 0:
+            data.iloc[:, -1][i] = 1
+
+    outlier = data[data.iloc[:, -1] == -1]
+    normal = data[data.iloc[:, -1] == 1]
+
+    X_train = normal.iloc[:int(len(normal) * (1 - args.split))]
+    X_test = normal.iloc[int(len(normal) * (1 - args.split)):].append(outlier)
+    
+    X_train, X_valid = train_test_split(X_train.iloc[:, :-1],
+                                        test_size = args.split,
+                                        random_state = args.seed)
+```
+``` py
+if args.masking:
+        sample_idx_list = list(range(X_train.shape[0]))
+        for i in range(len(X_train.iloc[:, :-1].columns)):
+            random_idx = random.sample(sample_idx_list, int(args.masking_ratio * len(X_train)))
+            for idx in random_idx:
+                X_train.iloc[:, i][idx] = 0
+
+    X_test, y_test = X_test.iloc[:, :-1], X_test.iloc[:, -1]
+
+
+    model = tf.keras.models.Sequential([
+        tf.keras.layers.Dense(16, activation='relu'),
+        tf.keras.layers.Dense(8, activation='relu'),
+        tf.keras.layers.Dense(4, activation='relu'),
+        tf.keras.layers.Dense(2, activation='relu'),
+        tf.keras.layers.Dense(4, activation='relu'),
+        tf.keras.layers.Dense(8, activation='relu'),
+        tf.keras.layers.Dense(16, activation='relu'),
+        tf.keras.layers.Dense(X_test.shape[-1], activation='relu'),
+        ])
+
+    model.compile(optimizer="adam", 
+                    loss="mse",
+                    metrics=["mse"])
+    # model.build(X_train.shape)
+    # model.summary()
+    
+    save_model = tf.keras.callbacks.ModelCheckpoint(
+    filepath='autoencoder_best_weights.hdf5',
+    save_best_only=True,
+    monitor='val_loss',
+    verbose=0,
+    mode='min'
+)
+    cb = [save_model]
+
+    history = model.fit(
+    X_train, X_train,
+    shuffle=True,
+    epochs=args.epoch,
+    batch_size=args.batch_size,
+    callbacks=cb,
+    validation_data = (X_valid, X_valid)
+    )
+
+    reconstructions = model.predict(X_test)
+
+    mse = np.mean(np.power(X_test - reconstructions, 2), axis=1)
+    z_scores = mad_score(mse)
+    outliers = z_scores > args.threshold     
+    outliers = outliers * 1
+    outliers[outliers == 1] = -1
+    outliers[outliers == 0] = 1
+
+    real_outliers_idx = y_test[y_test == -1].index
+    real_normal_idx = y_test[y_test == 1].index
+    pred_outlier_idx = outliers[outliers == -1].index
+    pred_normal_idx = outliers[outliers == 1].index
+
+    accuracy = accuracy_score(outliers.to_numpy(), y_test.to_numpy())
+    precision = precision_score(outliers.to_numpy(), y_test.to_numpy())
+    recall = recall_score(outliers.to_numpy(), y_test.to_numpy())
+    f1score = f1_score(outliers.to_numpy(), y_test.to_numpy())
+
+    print(f"Detected {np.sum(outliers==-1):,} outliers in a total of {np.size(z_scores):,} transactions [{np.sum(outliers==-1)/np.size(z_scores):.2%}].")
+    print('Accuracy :', accuracy, " Precision :", precision)
+    print('Recall :', recall, 'F1-Score :', f1score)
+```
