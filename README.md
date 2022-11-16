@@ -543,7 +543,7 @@ ___
 
 #### 1) For anomaly detection, it is very important to determine the threshold that determines whether it is an outlier.
 #### 2) In the case of Isolation Forest, the percentage of the outlier is received as an argument and the threshold is determined by itself. 
-#### 3) However, in some cases, the Auto-encoder, which arbitrarily set the threshold value, showed better performance than Isolation Forest.
+#### 3) The IF's overall performance was good. However, in some cases, the Auto-encoder, which arbitrarily set the threshold value, showed better performance than Isolation Forest.
 #### 4) I think that research on thresholds suitable for datasets and methodologies used is an essential field.
 ___
 
