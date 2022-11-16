@@ -463,6 +463,6 @@ Analyzing the experimental results can be summarized as follows.
 
 ___
 ### [Experiment 3.] Effects of Masking on Auto-encoder
-In Auto-encoder, the MAD_Score described above is set to threshold. In this experiment, the performance when masking is applied and when not applied is compared. If masking is applied, the ratio of masking, args.Compare the masking_ratio in 0.1, 0.2, 0.3, and 0.4 cases. Epoch is 300, batch size is 16.
+In Auto-encoder, the MAD_Score described above is set to threshold. In this experiment, the performance when masking is applied and when not applied is compared. If masking is applied, the ratio of masking, args.Compare the masking_ratio in 0.1, 0.2, 0.3, and 0.4 cases. Epoch is 300, batch size is 32.
 
 #### 1) No Masking Case
