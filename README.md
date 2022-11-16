@@ -528,6 +528,12 @@ The most important hyperparameter in the code of the Isolation Forest methodolog
 |          2 | Glass                 |    **0.9760**|        0.9760|       0.9760|        0.9760|        0.9760|
 |          3 | Lympho                 |    **0.9861**|        0.9861|        0.9861|        0.9861|        0.9861|
 |          4 | Seismic                 |    0.9614|       0.9626|       0.9626|        **0.9280**|        0.9626|
-|          5 | Shuttle                 |    0.9678|        0.9679|        0.9679|        **0.9688**|        0.9679|
+|          5 | Shuttle                 |    0.9678|        0.9679|        0.9679|        **0.9688**|        0.9688|
 |          6 | Annthyroid                 |    **0.9649**|        0.9626|        0.9627|        0.9626|        0.9626|
 |          7 | Mammography                 |    0.9871 |        **0.9890**|        0.9876|        0.9871|        0.9874|
+
+Analyzing the experimental results can be summarized as follows.
+
+#### 1. If the number of samples in the dataset(Glass, Lympho) is small, it is useless to increase n_estimators.
+#### 2. In the case of Shuttle dataset with the largest number of samples, there was a change in performance until the n_estimators reached 200.
+#### 3. Even if the number of samples was enough, increasing n_estimators did not mean improving performance(Annthyroid, Mammography).
