@@ -426,8 +426,8 @@ Analyzing the experimental results can be summarized as follows.
 
 #### 1. Datasets (Lympho, Seismic) with a small number of samples are insensitive to performance changes despite changes in K values.
 #### 2. As the K value increases, the performance of datasets with a large number of samples (Anthyroid, Mammography, and ForestCover) increases slightly.
-#### 3. It did not seem to be significantly affected by the change in the K value.
-
+#### 3. The high value of K did not necessarily mean that the performance was good.
+#### 4. It did not seem to be significantly affected by the change in the K value.
 ___
 
 ### [Experiment 2.] Comparison of k-NN anomaly detection performance by neighbors hyperparameter changes
