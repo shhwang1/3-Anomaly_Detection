@@ -556,3 +556,4 @@ ___
 - https://medium.com/dataman-in-ai/anomaly-detection-with-pyod-b523fc47db9
 - https://www.assemblyai.com/blog/introduction-to-variational-autoencoders-using-keras/
 - https://sh-tsang.medium.com/review-context-encoders-feature-learning-by-inpainting-bd181e48997
+- https://towardsdatascience.com/how-to-perform-anomaly-detection-with-the-isolation-forest-algorithm-e8c8372520bc
