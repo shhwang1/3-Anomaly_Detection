@@ -321,3 +321,4 @@ if args.masking:
     print('Accuracy :', accuracy, " Precision :", precision)
     print('Recall :', recall, 'F1-Score :', f1score)
 ```
+We used tensorflow to build a deep learning model. The model structure is very simple. The existing feature is compressed into 16-dim -> 8-dim -> 4dim -> 2dim and reconstructed with the existing shape. We conducted an additional experiment applying masking, which replaces random information among input data with a value of 0. The following is a architecture of the model structure, and a comparative experiment according to masking will be confirmed later in analysis.
