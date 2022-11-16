@@ -323,3 +323,5 @@ if args.masking:
 ```
 We used tensorflow to build a deep learning model. The model structure is very simple. The existing feature is compressed into 16-dim -> 8-dim -> 4dim -> 2dim and reconstructed with the existing shape. We conducted an additional experiment applying masking, which replaces random information among input data with a value of 0. The following is a architecture of the model structure, and a comparative experiment according to masking will be confirmed later in analysis.
 ![image](https://user-images.githubusercontent.com/115224653/202095568-700242b1-22da-4f5b-bfd0-6dab955953f1.png)
+___
+### 4. Isolation Forest
