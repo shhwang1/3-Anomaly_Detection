@@ -394,4 +394,4 @@ Since the outlier threshold determined according to the methodology to be tested
 
 ### [Experiment 1.] Comparison of Local Outlier Factor performance by neighbors hyperparameter changes
 
-In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is very important because it directly affects the calculation of k-distance and reachability, which are important elements of the methodology. In the existing code, the default value of k is 20. We compared the performance for a total of six cases: 5, 10, 15, 20, 30, 50.
+In the Local Outlier Factor methodology, 'k' as defined by the hyperparameter is very important because it directly affects the calculation of k-distance and reachability, which are important elements of the methodology. In the existing code, the default value of k is 20. We compared the performance for a total of six cases: 5, 10, 15, 20, 30, 50. The evaluation metrics were set to acuity and F1 score.
