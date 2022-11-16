@@ -555,3 +555,4 @@ ___
 - https://yjjo.tistory.com/45
 - https://medium.com/dataman-in-ai/anomaly-detection-with-pyod-b523fc47db9
 - https://www.assemblyai.com/blog/introduction-to-variational-autoencoders-using-keras/
+- https://sh-tsang.medium.com/review-context-encoders-feature-learning-by-inpainting-bd181e48997
