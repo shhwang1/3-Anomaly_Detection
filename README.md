@@ -508,3 +508,6 @@ Analyzing the experimental results can be summarized as follows.
 #### 1. In the dataset (Cardio, Glass), where the accuracy was relatively low, the masking effect appeared quite a bit.
 #### 2. The effect was insignificant on the highly accurate datasets (Shuttle, Lympho, and Mammography).
 #### 3. It was judged that it was worth trying masking on a dataset where the threshold was not accurately built.
+___
+### [Experiment 3.] Comparison of Isolation Forest anomaly detection performance by n_esitimators hyperparameter changes
+The most important hyperparameter in the code of the Isolation Forest methodology is n_estimators, which represent the number of trees. In the case of max_sample hyperparameter, it can be set to 'auto', so it is utilized. The experimental table below shows the results according to the change in the number of n_estimators.
