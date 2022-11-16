@@ -491,7 +491,7 @@ And the following is the result table of applying masking.
 |          4 | Seismic                 |    0.7320 |       **0.7810**|       0.6554|        0.7795|        0.7688|
 |          5 | Shuttle                 |    0.9865|        0.9854|        0.9842|        0.8383|        **0.9868**|
 |          6 | Annthyroid                 |    0.7479 |        **0.7602**|        0.7190|        0.7126|        0.7093|
-|          7 | Mammography                 |    0.9100 |        0.9104|        0.8990|        0.8810|        0.8936|
+|          7 | Mammography                 |    0.9100 |        **0.9104**|        0.8990|        0.8810|        0.8936|
 
 |  F1-Score  | Dataset              |  Base |   Masking ratio = 0.1 |   Masking ratio = 0.2 |   Masking ratio = 0.3 |   Masking ratio = 0.4 |
 |:----------:|:--------------------:|:------:|:--------:|:--------:|:--------:|:--------:|
@@ -501,4 +501,10 @@ And the following is the result table of applying masking.
 |          4 | Seismic                 |    0.8262 |        **0.8563**|       0.7508|        0.8569|        0.8527|
 |          5 | Shuttle                 |    0.9907|        0.9900|        0.9891|        0.8993|        **0.9916**|
 |          6 | Annthyroid                 |    0.8448 |        **0.8497**|        0.8289|        0.8275|        0.8283|
-|          7 | Mammography                 |    0.9519 |        0.9497|        0.9428|        0.9318|        0.9438|
+|          7 | Mammography                 |    **0.9519** |        0.9497|        0.9428|        0.9318|        0.9438|
+
+Analyzing the experimental results can be summarized as follows.
+
+#### 1. In the dataset (Cardio, Glass), where the accuracy was relatively low, the masking effect appeared quite a bit.
+#### 2. The effect was insignificant on the highly accurate datasets (Shuttle, Lympho, and Mammography).
+#### 3. It was judged that it was worth trying masking on a dataset where the threshold was not accurately built.
